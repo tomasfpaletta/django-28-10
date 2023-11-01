@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block tittle_head %} 
+<title>Crear Vehiculo</title>
+{% endblock tittle_head %}
+
+{% block navigation %}
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#projects">Autos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#signup">Crear vehiculo</a></li>
+    </ul>
+</div>
+{% endblock navigation %}
+
+{% block main %}{% endblock main %}
+
+{% block h2_header %}
+<h2 class="text-white-50 mx-auto mt-2 mb-5">Los mejores del pais!</h2>
+<a class="btn btn-primary" href="#about">Ver</a>
+{% endblock h2_header %}
+
+{% block project %}
+<section class="projects-section bg-light" id="projects">
+    <div class="container px-4 px-lg-5">
+        <!-- Featured Project Row-->
+        <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="static/assets/img/motor.png" alt="..." /></div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="featured-text te text-center text-lg-left">
+                    <h4>¿Por que Chevrolet?</h4>
+                    <p class="text-black-50 mb-0">Ir más allá del confort, la seguridad y la tecnología para ofrecer posibilidades inéditas. Ese es nuestro propósito. Y aun después de 100 años de historia, seguimos motivados y enfocados en crear soluciones innovadoras que te ayudarán a encontrar el camino que buscás.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Project One Row-->
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="col-lg-6"><img class="img-fluid" src="static/assets/img/auto2.png" alt="..." /></div>
+            <div class="col-lg-6">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                            <h4 class="text-white">OnStar</h4>
+                            <p class="mb-0 text-white-50">Con una larga historia y experiencia llevando tecnología innovadora a tu camino, nunca hemos olvidado que la comunicación más significativa ocurre entre las personas. Por eso mismo, nuestro equipo está siempre ON para atenderte y ayudarte en todos tus caminos. Con OnStar, contás con tecnología y asistencia personalizada las 24 horas del día, en donde quiera que estés. Eso es estar conectado de verdad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Project Two Row-->
+        <div class="row gx-0 justify-content-center">
+            <div class="col-lg-6"><img class="img-fluid" src="static/assets/img/auto1.jpg" alt="..." /></div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-right">
+                            <h4 class="text-white">Avanza al siguiente nivel</h4>
+                            <p class="mb-0 text-white-50">Tecnológicamente equipados con motores potentes y eficientes, nuestros vehículos de alto rendimiento, están listos para ofrecerte experiencias que nunca antes viviste</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock project %}
+
+
+{% block h1_header %}
+
+Fabricacion
+
+{% endblock h1_header %}

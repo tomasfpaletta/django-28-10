@@ -1,1 +1,1 @@
-# django-28-10
+# Tercera pre-entrega Tomas Paletta

@@ -10,6 +10,12 @@ class ListadoVehiculos(ListView):
     model = Vehiculo
     context_object_name = 'Listado_de_vehiculos'
     template_name = 'vehiculo/vehiculos.html'
+    def get_queryset(self):
+        modelo_a_buscar = self.request.GET.get('modelo')
+        if modelo_a_buscar:
+            return Vehiculo.objects.filter(modelo__icontains=modelo_a_buscar)
+        else:
+            return Vehiculo.objects.all()
 
 class ListadoCamionetas(ListView):
   model = Camioneta
@@ -21,9 +27,6 @@ class CrearVehiculo(CreateView):
    template_name = "vehiculo/crear_vehiculo.html"
    fields =['marca','modelo','descripcion','fecha_creacion']
    success_url = reverse_lazy('vehiculos')
-
-
-
 
 
 

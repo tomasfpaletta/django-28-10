@@ -8,6 +8,7 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#projects">Vehiculos</a></li>
+        <li class="nav-item"><a class="nav-link" href={% url "camionetas" %}>Camionetas</a></li>
         <li class="nav-item"><a class="nav-link" href={% url "crear_vehiculo" %}>Crear vehiculo</a></li>
         <li class="nav-item"><a class="nav-link" href={% url "eliminar_vehiculo" %}>Eliminar vehiculo</a></li>
     </ul>
@@ -25,11 +26,10 @@
         <!-- Featured Project Row-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
             <div class="col-xl-4 col-lg-5">
-                <form action="">
+                <form action="{% url "vehiculos" %}">
                     <input type="text" name="modelo" placeholder="¿Que vehiculo buscas?">
                     <input type="submit" value="buscar">
                 </form>
-                    <form action="" method="POST">
                         {% if Listado_de_vehiculos %}
                         <ul>
                             {% for vehiculo in Listado_de_vehiculos %}

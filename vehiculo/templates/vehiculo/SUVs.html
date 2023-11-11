@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 
 {% block tittle_head %} 
-<title>Vehiculos</title>
+<title>SUVs</title>
 {% endblock tittle_head %}
 
 {% block navigation %}
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#projects">Vehiculos</a></li>
-        <li class="nav-item"><a class="nav-link" href={% url "camionetas" %}>Camionetas</a></li>
-        <li class="nav-item"><a class="nav-link" href={% url "SUVs" %}>SUVs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">SUVs</a></li>
         <li class="nav-item"><a class="nav-link" href={% url "crear_vehiculo" %}>Crear vehiculo</a></li>
         <li class="nav-item"><a class="nav-link" href={% url "eliminar_vehiculo" %}>Eliminar vehiculo</a></li>
     </ul>
@@ -17,7 +15,7 @@
 {% endblock navigation %}
 
 {% block h2_header %}
-<h2 class="text-white-50 mx-auto mt-2 mb-5">Sector autos</h2>
+<h2 class="text-white-50 mx-auto mt-2 mb-5">Sector SUVs</h2>
 <a class="btn btn-primary" href="#about">Ver modelos</a>
 {% endblock h2_header %}
 
@@ -28,7 +26,7 @@
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
             <div class="col-xl-4 col-lg-5">
                 <form action="{% url "vehiculos" %}">
-                    <input type="text" name="modelo" placeholder="¿Que vehiculo deseas eliminar?">
+                    <input type="text" name="modelo" placeholder="¿Que vehiculo buscas?">
                     <input type="submit" value="buscar">
                 </form>
                         {% if Listado_de_vehiculos %}
@@ -43,7 +41,6 @@
                         <p>No se encontro ningun vehiculo</p>
                         {% endif %}
                         <input type="submit" value="Crear">
-                        <input type="submit" value="Eliminar" action="{% url "eliminar_vehiculo" %}">
                     </form>
             </div>
         </div>

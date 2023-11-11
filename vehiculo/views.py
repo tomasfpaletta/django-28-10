@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 from django.views.generic.list import ListView
-from vehiculo.models import Vehiculo
+from vehiculo.models import Vehiculo, Camioneta
 from django.views.generic.edit import CreateView 
 from django.urls import reverse_lazy
-# from inicio.forms import CrearVehiculoFormulario
+from inicio.forms import CrearVehiculoFormulario
 
 
 class ListadoVehiculos(ListView):
@@ -11,12 +11,24 @@ class ListadoVehiculos(ListView):
     context_object_name = 'Listado_de_vehiculos'
     template_name = 'vehiculo/vehiculos.html'
 
+class ListadoCamionetas(ListView):
+  model = Camioneta
+  context_object_name = 'Listado_de_camionetas'
+  template_name = 'vehiculo/camioneta.html'
+
 class CrearVehiculo(CreateView):
    model = Vehiculo
    template_name = "vehiculo/crear_vehiculo.html"
    fields =['marca','modelo','descripcion','fecha_creacion']
    success_url = reverse_lazy('vehiculos')
-   
+
+
+
+
+
+
+
+
 # def crear_vehiculo(request):
     
 #   #V2 (Django Forms)

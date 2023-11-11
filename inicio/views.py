@@ -9,8 +9,13 @@ def inicio(request):
 
 def vehiculos(request):
     
-    listado_de_vehiculos = Vehiculo.objects.all()
-    
+    modelo_a_buscar = request.GET.get('modelo')
+    if modelo_a_buscar:
+      listado_de_vehiculos = Vehiculo.objects.filter(modelo=modelo_a_buscar)
+
+    else:  
+      listado_de_vehiculos = Vehiculo.objects.all()
+  
     return render(request, 'vehiculos.html', {'listado_de_vehiculos':listado_de_vehiculos})
 
 def crear_vehiculo(request):

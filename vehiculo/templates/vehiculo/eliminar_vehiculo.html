@@ -1,23 +1,25 @@
 {% extends "base.html" %}
 
 {% block tittle_head %} 
-<title>Vehiculos</title>
+<title>Eliminar Vehiculo</title>
 {% endblock tittle_head %}
 
 {% block navigation %}
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#projects">Vehiculos</a></li>
-        <li class="nav-item"><a class="nav-link" href={% url "crear_vehiculo" %}>Crear vehiculo</a></li>
-        <li class="nav-item"><a class="nav-link" href={% url "eliminar_vehiculo" %}>Eliminar vehiculo</a></li>
+        <li class="nav-item"><a class="nav-link" href={% url "eliminar_vehiculo" %}>Eliminar</a></li>
+        <li class="nav-item"><a class="nav-link" href="#signup">Eliminar Vehiculo</a></li>
     </ul>
 </div>
 {% endblock navigation %}
 
+{% block main %}{% endblock main %}
+
 {% block h2_header %}
-<h2 class="text-white-50 mx-auto mt-2 mb-5">Sector autos</h2>
-<a class="btn btn-primary" href="#about">Ver modelos</a>
+<h2 class="text-white-50 mx-auto mt-2 mb-5">Eliminar auto Chevrolet</h2>
+<a class="btn btn-primary" href="#projects">Eliminar</a>
 {% endblock h2_header %}
+
 
 {% block project %}
 <section class="projects-section bg-light" id="projects">
@@ -25,22 +27,10 @@
         <!-- Featured Project Row-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
             <div class="col-xl-4 col-lg-5">
-                <form action="">
-                    <input type="text" name="modelo" placeholder="¿Que vehiculo buscas?">
-                    <input type="submit" value="buscar">
-                </form>
+
                     <form action="" method="POST">
-                        {% if Listado_de_vehiculos %}
-                        <ul>
-                            {% for vehiculo in Listado_de_vehiculos %}
-                            <li>
-                                {{vehiculo}}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                        {% else %}
-                        <p>No se encontro ningun vehiculo</p>
-                        {% endif %}
+                        {% csrf_token %}
+                       {{form}}
                         <input type="submit" value="Crear">
                     </form>
             </div>
@@ -69,4 +59,7 @@
 
 
 {% block h1_header %}
+
+Eliminar
+
 {% endblock h1_header %}

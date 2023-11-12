@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block tittle_head %} 
+<title>Iniciar sesion</title>
+{% endblock tittle_head %}
+
+{% block navigation %}
+{% endblock navigation %}
+
+{% block main %}{% endblock main %}
+
+{% block h2_header %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form_iniciar_sesion.as_p}}
+    <input type="submit" value="Iniciar sesion">
+</form>
+{% endblock h2_header %}
+
+{% block project %}
+{% endblock project %}
+
+
+{% block h1_header %}
+
+Bienvenido
+
+{% endblock h1_header %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block tittle_head %} 
-<title>Iniciar sesion</title>
+<title>Registro</title>
 {% endblock tittle_head %}
 
 {% block navigation %}
@@ -10,10 +10,12 @@
 {% block main %}{% endblock main %}
 
 {% block h2_header %}
-<form action={% url "login" %} method="POST">
+<form action={% url "registrarse" %} method="POST">
     {% csrf_token %}
-    {{form_iniciar_sesion.as_p}}
-    <input type="submit" value="Iniciar sesion">
+    <table>
+        {{form_iniciar_registro}}
+    </table>
+    <input type="submit" value="Registrarse">
 </form>
 {% endblock h2_header %}
 
@@ -22,5 +24,5 @@
 
 
 {% block h1_header %}
-Bienvenido
+Registrate a Chevrolet
 {% endblock h1_header %}

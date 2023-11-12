@@ -4,8 +4,11 @@ from django.http import HttpResponse
 from inicio.models import Vehiculo 
 from inicio.forms import CrearVehiculoFormulario
 
+
+
 def inicio(request):
     return render(request, 'inicio.html', {})
+
 
 def vehiculos(request):
     
@@ -17,6 +20,7 @@ def vehiculos(request):
       listado_de_vehiculos = Vehiculo.objects.all()
   
     return render(request, 'vehiculos.html', {'listado_de_vehiculos':listado_de_vehiculos})
+
 
 def crear_vehiculo(request):
     

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block tittle_head %} 
-<title>Iniciar sesion</title>
+<title>Cerrar sesion</title>
 {% endblock tittle_head %}
 
 {% block navigation %}
@@ -9,12 +9,7 @@
 
 {% block main %}{% endblock main %}
 
-{% block h2_header %}
-<form action={% url "login" %} method="POST">
-    {% csrf_token %}
-    {{form_iniciar_sesion.as_p}}
-    <input type="submit" value="Iniciar sesion">
-</form>
+{% block h2_header %}  
 {% endblock h2_header %}
 
 {% block project %}
@@ -22,5 +17,5 @@
 
 
 {% block h1_header %}
-Bienvenido
+Has cerrado sesion!
 {% endblock h1_header %}

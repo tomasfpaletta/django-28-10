@@ -4,6 +4,7 @@ from vehiculo.models import Vehiculo, Camioneta, SUVs
 from django.views.generic.edit import CreateView, DeleteView
 from django.urls import reverse_lazy
 from inicio.forms import CrearVehiculoFormulario
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class ListadoVehiculos(ListView):
@@ -27,13 +28,13 @@ class ListadoSuvs(ListView):
   context_object_name = 'Listado_de_SUVs'
   template_name = 'vehiculo/SUVs.html'
 
-class CrearVehiculo(CreateView):
+class CrearVehiculo(LoginRequiredMixin,CreateView):
    model = Vehiculo
    template_name = "vehiculo/crear_vehiculo.html"
    fields =['marca','modelo','descripcion','fecha_creacion']
    success_url = reverse_lazy('vehiculos')
    
-class EliminarVehiculo(DeleteView):
+class EliminarVehiculo(LoginRequiredMixin,DeleteView):
   model = Vehiculo
   template_name = "vehiculo/eliminar_vehiculo.html"
   success_url = reverse_lazy('vehiculos')

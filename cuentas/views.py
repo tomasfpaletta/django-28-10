@@ -44,10 +44,10 @@ def editar_perfil(request):
     
     datos_extra = request.user.datosextra
     
-    formulario = EditarPerfil(instance=request.user, initial={'biografia': datos_extra.biografia})
+    formulario = EditarPerfil(instance=request.user, initial={'biografia': datos_extra.biografia, 'avatar': datos_extra.user})
     
     if request.method == 'POST':
-        formulario = editar_perfil(request.POST, intance=request.user)
+        formulario = EditarPerfil(request.POST,request.FILES, instance=request.user)
         
         if formulario.is_valid():
             
@@ -58,9 +58,11 @@ def editar_perfil(request):
                 datos_extra.biografia = nueva_biografia
             if nueva_avatar:
                 datos_extra.avatar = nueva_avatar
-            datos_extra.save()
                 
+            datos_extra.save()   
             formulario.save()
+            
+            return redirect('editar_perfil')
         
     return render(request, 'cuentas/editar_perfil.html', {'formulario': formulario})
 

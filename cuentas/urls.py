@@ -1,11 +1,13 @@
 from django.urls import path
-from cuentas.views import login,registro, editar_perfil, CambioPassword
+from cuentas.views import login,registro, editar_perfil, CambioPassword, Perfil
 from django.contrib.auth.views import LogoutView
+
 
 urlpatterns = [
     path('login/', login, name='login'),
     path('logout/', LogoutView.as_view(template_name='cuentas/logout.html'), name='logout'),
     path('registro/', registro, name='registrarse'),
     path('perfil/editar/', editar_perfil, name='editar_perfil'),
-    path('perfil/password/', CambioPassword.as_view(), name='cambiar_password')
+    path('perfil/password/', CambioPassword.as_view(), name='cambiar_password'),
+    path('perfil/',Perfil.as_view(),name='perfil'),
     ]

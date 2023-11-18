@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block tittle_head %} 
+<title>Perfil</title>
+{% endblock tittle_head %}
+
+{% block navigation %}
+<li class="nav-item"><a class="nav-link" href={% url "editar_perfil" %}>Editar perfil</a></li>
+{% endblock navigation %}
+
+{% block main %}{% endblock main %}
+
+{% block h2_header %}
+<form action={% url "login" %} method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+<table>
+    <p style="color:white;display:inline-block;margin-right:1rem">
+        {{request.user.username}}
+    </p>
+    {{request.user.avatar}}
+    <img src={{request.user.datosextra.avatar.url}} alt="avatar" height = '40px'>
+    {{models.datosextra.biografia}}
+</table>
+
+
+</form>
+{% endblock h2_header %}
+
+{% block project %}
+{% endblock project %}
+
+
+{% block h1_header %}
+Tu perfil Chevrolet
+{% endblock h1_header %}

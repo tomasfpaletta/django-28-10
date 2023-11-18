@@ -36,7 +36,12 @@
                         <li class="nav-item"><a class="nav-link" href={% url "login" %}>Iniciar sesion</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url "registrarse" %}>Registrarse</a></li>
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" href={% url "editar_perfil" %}>Hola, {{request.user.username}}</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url "perfil" %}>
+                            {% if request.user.datosextra.avatar %}
+                            <img src={{request.user.datosextra.avatar.url}} alt="avatar" height = '40px'>
+                            {% endif %}
+                            Hola, {{request.user.username}}</a></li>
+
                         <li class="nav-item"><a class="nav-link" href={% url "logout" %}>Cerrar sesion</a></li>
                         {% endif %}
                     </ul>

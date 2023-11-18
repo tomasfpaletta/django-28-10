@@ -3,7 +3,6 @@ from django.views.generic.list import ListView
 from vehiculo.models import Vehiculo, Camioneta, SUVs
 from django.views.generic.edit import CreateView, DeleteView
 from django.urls import reverse_lazy
-from inicio.forms import CrearVehiculoFormulario
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 

@@ -5,7 +5,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from cuentas.forms import MiFormularioDeCreacion, EditarPerfil
 from cuentas.models import DatosExtra
-from django.views.generic.list import ListView
+from django.views.generic.list import ListView 
 
 
 def login(request):
@@ -45,7 +45,7 @@ def editar_perfil(request):
     
     datos_extra = request.user.datosextra
     
-    formulario = EditarPerfil(instance=request.user, initial={'biografia': datos_extra.biografia, 'avatar': datos_extra.avatar})
+    formulario = EditarPerfil(instance=request.user, initial={'biografia': datos_extra.biografia, 'avatar': datos_extra.avatar,'user':datos_extra.user})
     
     if request.method == 'POST':
         formulario = EditarPerfil(request.POST,request.FILES, instance=request.user)
@@ -54,22 +54,25 @@ def editar_perfil(request):
             
             nueva_biografia = formulario.cleaned_data.get('biografia')
             nueva_avatar = formulario.cleaned_data.get('avatar')
+            nueva_user = formulario.cleaned_data.get('user')
             
             if nueva_biografia: 
                 datos_extra.biografia = nueva_biografia
             if nueva_avatar:
                 datos_extra.avatar = nueva_avatar
-                
+            if nueva_user:
+                datos_extra.user = nueva_user
+                    
             datos_extra.save()   
             formulario.save()
             
-            return redirect('editar_perfil')
+            return redirect('perfil')
         
     return render(request, 'cuentas/editar_perfil.html', {'formulario': formulario})
 
 class CambioPassword(PasswordChangeView):
     template_name = 'cuentas/cambiar_password.html'
-    success_url = reverse_lazy('editar_perfil')
+    success_url = reverse_lazy('perfil')
     
     
     

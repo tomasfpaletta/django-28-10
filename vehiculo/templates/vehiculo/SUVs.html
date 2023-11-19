@@ -8,8 +8,6 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#projects">SUVs</a></li>
-        <li class="nav-item"><a class="nav-link" href={% url "crear_vehiculo" %}>Crear vehiculo</a></li>
-        <li class="nav-item"><a class="nav-link" href={% url "eliminar_vehiculo" %}>Eliminar vehiculo</a></li>
     </ul>
 </div>
 {% endblock navigation %}
@@ -25,13 +23,13 @@
         <!-- Featured Project Row-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
             <div class="col-xl-4 col-lg-5">
-                <form action="{% url "vehiculos" %}">
+                <form action="{% url "SUVs" %}">
                     <input type="text" name="modelo" placeholder="¿Que vehiculo buscas?">
                     <input type="submit" value="buscar">
                 </form>
-                        {% if Listado_de_vehiculos %}
+                        {% if Listado_de_SUVs %}
                         <ul>
-                            {% for vehiculo in Listado_de_vehiculos %}
+                            {% for vehiculo in Listado_de_SUVs %}
                             <li>
                                 {{vehiculo}}
                             </li>
@@ -40,7 +38,7 @@
                         {% else %}
                         <p>No se encontro ningun vehiculo</p>
                         {% endif %}
-                        <input type="submit" value="Crear">
+                        <a href={% url "crear_vehiculo" %}>Crear vehiculo</a>
                     </form>
             </div>
         </div>

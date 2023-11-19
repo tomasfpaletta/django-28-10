@@ -15,11 +15,12 @@
     {% csrf_token %}
 <table>
     <p style="color:white;display:inline-block;margin-right:1rem">
-        {{request.user.username}}
+        {{request.user.first_name}}
     </p>
     {{request.user.avatar}}
     <img src={{request.user.datosextra.avatar.url}} alt="avatar" height = '40px'>
-    {{models.datosextra.biografia}}
+
+    {{datosextra.biografia}}
 </table>
 
 

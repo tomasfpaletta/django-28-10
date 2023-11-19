@@ -10,15 +10,13 @@
         <li class="nav-item"><a class="nav-link" href="#projects">Vehiculos</a></li>
         <li class="nav-item"><a class="nav-link" href={% url "camionetas" %}>Camionetas</a></li>
         <li class="nav-item"><a class="nav-link" href={% url "SUVs" %}>SUVs</a></li>
-        <li class="nav-item"><a class="nav-link" href={% url "crear_vehiculo" %}>Crear vehiculo</a></li>
-        <li class="nav-item"><a class="nav-link" href={% url "eliminar_vehiculo" %}>Eliminar vehiculo</a></li>
     </ul>
 </div>
 {% endblock navigation %}
 
 {% block h2_header %}
 <h2 class="text-white-50 mx-auto mt-2 mb-5">Sector autos</h2>
-<a class="btn btn-primary" href="#about">Ver modelos</a>
+<a class="btn btn-primary" href="#projects">Ver modelos</a>
 {% endblock h2_header %}
 
 {% block project %}
@@ -34,16 +32,13 @@
                         {% if Listado_de_vehiculos %}
                         <ul>
                             {% for vehiculo in Listado_de_vehiculos %}
-                            <li>
-                                {{vehiculo}}
-                            </li>
+                            <li>{{vehiculo}} - <a href={% url "eliminar_vehiculo" vehiculo.id %}> eliminar</a> - <a href={% url "detalle_vehiculo" vehiculo.id %}> detalles</a></li>
                             {% endfor %}
                         </ul>
                         {% else %}
                         <p>No se encontro ningun vehiculo</p>
                         {% endif %}
-                        <input type="submit" value="Crear">
-                        <input type="submit" value="Eliminar" action="{% url "eliminar_vehiculo" %}">
+                        <a href={% url "crear_vehiculo" %}>Crear vehiculo</a>
                     </form>
             </div>
         </div>

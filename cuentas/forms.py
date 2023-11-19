@@ -17,11 +17,10 @@ class EditarPerfil(UserChangeForm):
     password = None
     email = forms.EmailField(label='Cambiar email', required=False)
     first_name = forms.CharField(label='Cambiar nombre', required=False)
-    last_name = forms.CharField(label='Cambiar apellido', required=False)
     biografia = forms.CharField(max_length=300, required=False, widget=forms.Textarea)
     avatar = forms.ImageField(required=False) 
      
     class Meta: 
         model = User 
-        fields = ['email','first_name','last_name','biografia','avatar']
+        fields = ['email','first_name','biografia','avatar']
            

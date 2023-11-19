@@ -1,20 +1,19 @@
 {% extends "base.html" %}
 
 {% block tittle_head %} 
-<title>Camionetas</title>
+<title>Detalle</title>
 {% endblock tittle_head %}
 
 {% block navigation %}
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#projects">Camionetas</a></li>
+        <li class="nav-item"><a class="nav-link" href={% url "vehiculos" %}>Vehiculos</a></li>
     </ul>
 </div>
 {% endblock navigation %}
 
 {% block h2_header %}
-<h2 class="text-white-50 mx-auto mt-2 mb-5">Sector camionetas</h2>
-<a class="btn btn-primary" href="#about">Ver modelos</a>
+<h2 class="text-white-50 mx-auto mt-2 mb-5">Detalles</h2>
 {% endblock h2_header %}
 
 {% block project %}
@@ -23,22 +22,11 @@
         <!-- Featured Project Row-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
             <div class="col-xl-4 col-lg-5">
-                <form action="{% url "camionetas" %}">
-                    <input type="text" name="modelo" placeholder="¿Que vehiculo buscas?">
-                    <input type="submit" value="buscar">
-                </form>
-                        {% if Listado_de_camionetas %}
-                        <ul>
-                            {% for camioneta in Listado_de_camionetas %}
-                            <li>
-                                {{camioneta}}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                        {% else %}
-                        <p>No se encontro ningun vehiculo</p>
-                        {% endif %}
-                        <a href={% url "crear_vehiculo" %}>Crear vehiculo</a>                    </form>
+                <ul>
+                    <li> Modelo: {{vehiculo.modelo}} </li>
+                    <li> Descripcion: {{vehiculo.descripcion}} </li>  
+                    <li> Año: {{vehiculo.fecha_creacion}} </li> 
+                </ul>
             </div>
         </div>
         <!-- Project One Row-->

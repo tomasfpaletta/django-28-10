@@ -10,7 +10,7 @@
 {% block main %}{% endblock main %}
 
 {% block h2_header %}
-<form action={% url "editar_perfil" %} method="POST">
+<form action={% url "editar_perfil" %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
 <table>
     {{formulario}}

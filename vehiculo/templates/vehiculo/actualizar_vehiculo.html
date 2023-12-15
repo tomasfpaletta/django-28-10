@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block tittle_head %} 
+<title>Editar</title>
+{% endblock tittle_head %}
+
+{% block navigation %}
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href={% url "vehiculos" %}>Vehiculos</a></li>
+    </ul>
+</div>
+{% endblock navigation %}
+
+{% block h2_header %}
+<h2 class="text-white-50 mx-auto mt-2 mb-5">Actualizar Vehiculo</h2>
+{% endblock h2_header %}
+
+{% block project %}
+<section class="projects-section bg-light" id="projects">
+    <div class="container px-4 px-lg-5">
+        <!-- Featured Project Row-->
+        <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+            <div class="col-xl-4 col-lg-5">
+                <ul>
+                    <form action="" method="POST">
+                        <table>
+                            {% csrf_token %}
+                            {{formulario_actualizar}}
+                        </table>
+                        <input type="submit" value="Actualizar">
+                     </form>
+                </ul>
+            </div>
+        </div>
+        <!-- Project One Row-->
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="col-lg-6">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Project Two Row-->
+        <div class="row gx-0 justify-content-center">
+            <div class="col-lg-6 order-lg-first">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock project %}
+
+
+{% block h1_header %}
+{% endblock h1_header %}

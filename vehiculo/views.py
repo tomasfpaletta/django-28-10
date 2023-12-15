@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
 from django.views.generic.list import ListView
-from vehiculo.models import Vehiculo, Camioneta, SUVs, Auto
+from vehiculo.models import Vehiculo, Camioneta, SUVs
 from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from vehiculo.forms import BaseForm
 
 
 class ListadoVehiculos(ListView):
@@ -43,7 +44,7 @@ class ListadoSuvs(ListView):
 class CrearVehiculo(LoginRequiredMixin,CreateView):
    model = Vehiculo
    template_name = "vehiculo/crear_vehiculo.html"
-   fields =['tipo','modelo','descripcion','fecha_creacion']
+   fields =['tipo','modelo','descripcion']
    success_url = reverse_lazy('vehiculos')
    
 class EliminarVehiculo(LoginRequiredMixin,DeleteView):
@@ -54,3 +55,25 @@ class EliminarVehiculo(LoginRequiredMixin,DeleteView):
 class DetalleVehiculo(DetailView):
   model = Vehiculo
   template_name = "vehiculo/detalle_vehiculo.html"
+  
+
+def actualizar(request, id):
+    actualizar_vehiculo = Vehiculo.objects.get(id=id)
+    if request.method == 'POST':
+        formulario = BaseForm(request.POST)
+        if formulario.is_valid():
+            info_nueva = formulario.cleaned_data
+            
+            actualizar_vehiculo.tipo = info_nueva.get('tipo')
+            actualizar_vehiculo.modelo = info_nueva.get('modelo')
+            actualizar_vehiculo.descripcion = info_nueva.get('descripcion')
+            
+            actualizar_vehiculo.save()
+            return redirect('vehiculos')
+        else:
+            return render(request, 'vehiculo/actualizar_vehiculo.html', {'formulario_actualizar' :formulario})
+    
+    
+    
+    formulario = BaseForm(initial={'tipo': actualizar_vehiculo.tipo, 'modelo': actualizar_vehiculo.modelo, 'descripcion': actualizar_vehiculo.descripcion})
+    return render(request,'vehiculo/actualizar_vehiculo.html', {'formulario_actualizar': formulario})

@@ -10,7 +10,7 @@
 {% block main %}{% endblock main %}
 
 {% block h2_header %}
-<form action={% url "login" %} method="POST">
+<form action={% url "login" %} method="POST" style="color:white;display:inline-block;margin-right:1rem">
     {% csrf_token %}
     {{form_iniciar_sesion.as_p}}
     <input type="submit" value="Iniciar sesion">

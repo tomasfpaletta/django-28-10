@@ -5,7 +5,7 @@ class Vehiculo(models.Model):
     tipo = models.CharField(max_length=30)
     modelo = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=300)
-    fecha_creacion = models.DateField()
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
     
     def __str__(self): 
         return f'{self.tipo} - {self.modelo}'

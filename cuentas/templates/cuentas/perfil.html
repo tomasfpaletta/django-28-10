@@ -15,14 +15,13 @@
     {% csrf_token %}
 <table>
     <p style="color:white;display:inline-block;margin-right:1rem">
-        {{request.user.first_name}}
+       Soy {{request.user.first_name}}
     </p>
-    {{request.user.avatar}}
+{% if request.user.datosextra.avatar %}
     <img src={{request.user.datosextra.avatar.url}} alt="avatar" height = '40px'>
-<p>
-    {{request.user.datosextra.biografia}}
-</p>
-   
+{% endif %}
+<p style="color:white;margin-right:1rem">
+    {{request.user.datosextra.biografia}}</p>
 </table>
 
 
